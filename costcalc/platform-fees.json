@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "_comment": "판매처 수수료 규칙. 값의 출처는 docs/apps/costcalc/research/fees.md. 사용자가 공식 페이지로 재확인한 뒤 checkedOn을 갱신한다. rounding: roundDown=切り捨て, roundUp=切り上げ, halfUp=四捨五入, unknown=공식 기재 없음(계산 시 올림). rate 0.1067 = 10.67%.",
+  "platforms": [
+    {
+      "id": "minne",
+      "nameKey": "platform.minne",
+      "feeBase": "itemPlusShipping",
+      "components": [
+        { "nameKey": "fee.sales", "rate": 0.10659, "fixedPerOrderYen": 0, "rounding": "unknown" }
+      ],
+      "payoutFeeRules": [
+        { "minPayoutYen": 0, "feeYen": 220 }
+      ],
+      "effectiveFrom": "2025-11-01",
+      "effectiveBasis": "shippedDate",
+      "checkedOn": "2026-10-17",
+      "sourceURL": "https://minne.com/trading",
+      "noteKey": "note.roundingUnknown"
+    },
+    {
+      "id": "creema",
+      "nameKey": "platform.creema",
+      "feeBase": "itemPlusShipping",
+      "components": [
+        { "nameKey": "fee.sales", "rate": 0.1067, "fixedPerOrderYen": 0, "rounding": "unknown" }
+      ],
+      "payoutFeeRules": [
+        { "minPayoutYen": 0, "feeYen": 200 },
+        { "minPayoutYen": 30000, "feeYen": 275 }
+      ],
+      "effectiveFrom": "2025-11-05",
+      "effectiveBasis": "orderDate",
+      "checkedOn": "2026-10-17",
+      "sourceURL": "https://www.creema.jp/news/1480/detail",
+      "noteKey": "note.roundingUnknown"
+    },
+    {
+      "id": "mercari",
+      "nameKey": "platform.mercari",
+      "feeBase": "itemPlusShipping",
+      "components": [
+        { "nameKey": "fee.sales", "rate": 0.10, "fixedPerOrderYen": 0, "rounding": "roundDown" }
+      ],
+      "payoutFeeRules": [
+        { "minPayoutYen": 0, "feeYen": 200 }
+      ],
+      "effectiveFrom": null,
+      "effectiveBasis": "unknown",
+      "checkedOn": "2026-10-17",
+      "sourceURL": "https://help.jp.mercari.com/guide/articles/65/",
+      "noteKey": "note.mercariShippingIncluded"
+    },
+    {
+      "id": "base-standard",
+      "nameKey": "platform.baseStandard",
+      "feeBase": "itemPlusShipping",
+      "components": [
+        { "nameKey": "fee.payment", "rate": 0.036, "fixedPerOrderYen": 40, "rounding": "halfUp" },
+        { "nameKey": "fee.service", "rate": 0.03, "fixedPerOrderYen": 0, "rounding": "unknown" }
+      ],
+      "payoutFeeRules": [
+        { "minPayoutYen": 0, "feeYen": 750 },
+        { "minPayoutYen": 20000, "feeYen": 250 }
+      ],
+      "effectiveFrom": null,
+      "effectiveBasis": "unknown",
+      "checkedOn": "2026-10-17",
+      "sourceURL": "https://thebase.com/price/",
+      "noteKey": "note.baseOneItemPerOrder"
+    }
+  ]
+}
